@@ -34,7 +34,7 @@ function HomeFeatureCard({ feature, index }) {
       whileHover={{ y: -3, transition: { duration: 0.1, ease: [0.22, 1, 0.36, 1] } }}
       className="card-shadow-soft card-hover-fast card-no-accent group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 py-6 text-center hover:shadow-[0_16px_40px_rgba(2,28,16,0.08)] md:px-6"
     >
-      <div className={`pointer-events-none absolute -right-8 -top-8 size-24 rounded-full blur-2xl transition-transform duration-300 group-hover:scale-110 ${style.orb}`} />
+      <div className={`pointer-events-none absolute -right-8 -top-8 size-24 rounded-full opacity-60 transition-transform duration-300 group-hover:scale-110 ${style.orb}`} />
       <div className={`relative flex h-24 w-24 items-center justify-center rounded-2xl border border-white/70 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] ${style.frame}`}>
         <img
           src={`${feature.image}?v=${ASSET_VERSION}`}
@@ -44,8 +44,8 @@ function HomeFeatureCard({ feature, index }) {
           draggable={false}
         />
       </div>
-      <h3 className="mt-5 text-xl font-black leading-tight tracking-tight md:text-[1.75rem]">{feature.title}</h3>
-      <p className="mt-3 max-w-[15ch] text-base leading-8 text-[var(--muted)] md:max-w-[17ch]">
+      <h3 className="mt-5 text-lg font-black leading-tight tracking-tight sm:text-xl md:text-[1.55rem] xl:text-[1.75rem]">{feature.title}</h3>
+      <p className="mt-3 max-w-none text-sm leading-6 text-[var(--muted)] sm:text-base sm:leading-7 md:max-w-[17ch]">
         {feature.text}
       </p>
     </motion.article>
@@ -54,14 +54,14 @@ function HomeFeatureCard({ feature, index }) {
 
 export default function HomeFeaturesSection({ goTo }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-[4.5rem]" id="home-features">
-      <div className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-10 xl:p-12">
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-[4.5rem]" id="home-features">
+      <div className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-6 md:p-10 xl:p-12">
         <div className="pointer-events-none absolute right-0 top-0 h-36 w-36 bg-[radial-gradient(circle_at_top_right,color-mix(in_srgb,var(--accent)_10%,transparent),transparent_68%)]" />
         <div className="relative z-10">
           <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface-strong)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
             Core Features
           </span>
-          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">Our Features</h2>
+          <h2 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">Our Features</h2>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
           {HOME_FEATURE_CARDS.map((item, index) => (
@@ -75,6 +75,7 @@ export default function HomeFeaturesSection({ goTo }) {
               event.preventDefault()
               goTo('/features')
             }}
+            className="w-full sm:w-auto"
           >
             See More Features <ArrowRight className="size-4" />
           </GlowButton>

@@ -3,6 +3,7 @@ import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } fro
 import MobileNavDrawer from './components/layout/MobileNavDrawer'
 import SiteFooter from './components/layout/SiteFooter'
 import SiteHeader from './components/layout/SiteHeader'
+import WhatsAppFloatingButton from './components/layout/WhatsAppFloatingButton'
 import ScrollProgressBar from './components/ui/ScrollProgressBar'
 import usePageMeta from './hooks/usePageMeta'
 
@@ -139,8 +140,8 @@ export default function App() {
           >
             <Suspense
               fallback={
-                <div className="mx-auto max-w-7xl px-6 py-20" role="status" aria-live="polite">
-                  <div className="card-shadow-soft main-card-accent rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 text-sm text-[var(--muted)]">
+                <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20" role="status" aria-live="polite">
+                  <div className="card-shadow-soft main-card-accent rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 text-sm text-[var(--muted)] sm:p-8">
                     Loading page...
                   </div>
                 </div>
@@ -152,6 +153,7 @@ export default function App() {
         </AnimatePresence>
 
         <SiteFooter goTo={goTo} pathname={pathname} />
+        <WhatsAppFloatingButton />
       </div>
     </MotionConfig>
   )

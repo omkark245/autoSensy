@@ -25,10 +25,10 @@ function UseCaseCard({ item }) {
 
       {/* text block */}
       <div className="relative z-10 flex flex-1 flex-col px-5 pb-6 pt-5 text-center">
-        <h3 className="use-case-text text-[1.25rem] font-black leading-snug tracking-tight text-[var(--text)] group-hover:text-white">
+        <h3 className="use-case-text text-lg font-black leading-snug tracking-tight text-[var(--text)] group-hover:text-white sm:text-[1.25rem]">
           {item.title}
         </h3>
-        <p className="use-case-text mt-3 flex-1 text-[14.5px] leading-7 text-[var(--muted)] group-hover:text-[rgba(255,255,255,0.82)]">
+        <p className="use-case-text mt-3 flex-1 text-sm leading-6 text-[var(--muted)] group-hover:text-[rgba(255,255,255,0.82)] sm:text-[14.5px] sm:leading-7">
           {item.about}
         </p>
       </div>
@@ -46,7 +46,7 @@ function UseCaseCard({ item }) {
 
 export default function UseCasesPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
       {/* both in and out are slow at 0.65s */}
       <style>{`
         .use-case-overlay {
@@ -65,7 +65,7 @@ export default function UseCasesPage() {
         title="Built for industry-specific WhatsApp use cases"
         subtitle="Explore how different industries use AutoSensy to manage customer communication, automate repetitive workflows, improve engagement, and drive faster conversions through WhatsApp. Each use case is designed to reflect real business scenarios where timely messaging, follow-ups, and support directly improve customer experience and operational efficiency."
       />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {USE_CASE_CARDS.map((item) => (
           <UseCaseCard key={item.title} item={item} />
         ))}

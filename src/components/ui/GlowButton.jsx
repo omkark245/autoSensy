@@ -13,7 +13,7 @@ export default function GlowButton({
   className = '',
 }) {
   const [hovered, setHovered] = useState(false)
-  const base = 'button-hover-fast relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold'
+  const base = 'button-hover-fast relative inline-flex max-w-full items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-center text-sm font-semibold leading-snug sm:px-6'
   const primary = 'bg-[var(--accent)] text-[var(--accent-contrast)]'
   const secondary = 'border border-[var(--border)] bg-[var(--surface)] text-[var(--text)]'
   const disabledState = disabled ? 'cursor-not-allowed opacity-60' : ''
@@ -45,10 +45,10 @@ export default function GlowButton({
           transition={{ duration: 0.16, ease: 'easeOut' }}
         />
       )}
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
+      <span className="relative z-10 flex min-w-0 items-center justify-center gap-2">{children}</span>
       {variant === 'primary' && (
         <motion.span
-          className="absolute -inset-1 rounded-full opacity-0 blur-sm"
+          className="absolute -inset-1 rounded-full opacity-0"
           style={{ background: 'var(--accent)' }}
           animate={{ opacity: hovered ? 0.35 : 0 }}
           transition={{ duration: 0.12, ease: 'easeOut' }}

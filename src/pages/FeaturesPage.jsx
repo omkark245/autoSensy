@@ -15,13 +15,13 @@ const FEATURE_ICONS = {
 
 export default function FeaturesPage({ goTo }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
       <SectionHeader
         badge="Features"
         title="Powerful WhatsApp Business API features"
         subtitle="Built to automate communication, manage campaigns, and support customer engagement at scale."
       />
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURES_LIST.map((feature, index) => {
           const Icon = FEATURE_ICONS[feature] ?? Workflow
 
@@ -63,7 +63,7 @@ export default function FeaturesPage({ goTo }) {
           title="Marketing, chatbot, forms and payments from one platform"
           subtitle="Manage core WhatsApp workflows from one dashboard with modules designed for growth, support, and conversions."
         />
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
           {PRODUCT_MODULES.map((module, index) => (
             <motion.article
               key={module.title}
@@ -96,7 +96,7 @@ export default function FeaturesPage({ goTo }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <GlowButton onClick={() => goTo('/use-cases')}>
+        <GlowButton onClick={() => goTo('/use-cases')} className="w-full sm:w-auto">
           View Use Cases <ArrowRight className="size-4" />
         </GlowButton>
       </motion.div>

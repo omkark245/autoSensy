@@ -21,7 +21,7 @@ export default function MobileNavDrawer({ pathname, menuOpen, onToggleMenu, goTo
           onClick={onToggleMenu}
         >
           <motion.div
-            className="ml-auto flex h-screen w-[min(82vw,340px)] flex-col border-l border-[var(--border)] bg-[var(--surface)] px-5 pb-8 pt-5 shadow-[-18px_0_48px_rgba(2,28,16,0.18)]"
+            className="ml-auto flex h-screen w-[min(88vw,340px)] flex-col border-l border-[var(--border)] bg-[var(--surface)] px-4 pb-6 pt-4 shadow-[-18px_0_48px_rgba(2,28,16,0.18)] sm:px-5 sm:pb-8 sm:pt-5"
             initial={{ x: 52 }}
             animate={{ x: 0 }}
             exit={{ x: 52 }}
@@ -36,7 +36,7 @@ export default function MobileNavDrawer({ pathname, menuOpen, onToggleMenu, goTo
                 className="inline-flex items-center text-[var(--text)]"
                 aria-label="AutoSensy home"
               >
-                <BrandLogo className="h-10 w-auto" alt="AutoSensy" />
+                <BrandLogo className="h-9 w-auto sm:h-10" alt="AutoSensy" />
               </AppLink>
 
               <button

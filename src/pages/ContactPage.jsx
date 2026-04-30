@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { Check, ChevronDown, Globe, Mail, Phone } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import GlowButton from '../components/ui/GlowButton'
-import { createMailtoHref, submitFormToInbox } from '../utils/formSubmission'
 
 const INITIAL_FORM = {
   name: '',
@@ -30,6 +29,28 @@ const USE_CASE_OPTIONS = [
   { value: 'Reminders and payments', label: 'Reminders and payments' },
   { value: 'Mixed workflow', label: 'Mixed workflow' },
 ]
+
+const WHATSAPP_NUMBER = '919960756292'
+
+function createWhatsAppHref(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+}
+
+function createDemoRequestMessage(form) {
+  return [
+    'Hi AutoSensy, I want to book a demo.',
+    '',
+    `Name: ${form.name || '-'}`,
+    `Company: ${form.company || '-'}`,
+    `Contact number: ${form.phone || '-'}`,
+    `Email address: ${form.email || '-'}`,
+    `Monthly volume: ${form.monthlyVolume || '-'}`,
+    `Primary use case: ${form.useCase || '-'}`,
+    '',
+    'Demo preparation details:',
+    form.message || '-',
+  ].join('\n')
+}
 
 function ThemedSelect({ label, name, value, options, onChange }) {
   const [open, setOpen] = useState(false)
@@ -68,7 +89,7 @@ function ThemedSelect({ label, name, value, options, onChange }) {
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-controls={listboxId}
-          className={`button-hover-fast flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-sm shadow-sm ${
+          className={`button-hover-fast flex w-full min-w-0 items-center justify-between rounded-2xl border px-4 py-3 text-left text-sm shadow-sm ${
             open
               ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--text)]'
               : 'border-[var(--border)] bg-[var(--surface)] text-[var(--text)]'
@@ -134,21 +155,7 @@ export default function ContactPage() {
     { label: 'https://autosensy.in', href: 'https://autosensy.in', icon: Globe, helper: 'Visit the main site' },
   ]
 
-  const whatsappHref = 'https://wa.me/919960756292?text=Hi%20AutoSensy%2C%20I%20want%20a%20demo.'
-
-  const mailtoHref = useMemo(() => {
-    return createMailtoHref(`Demo request from ${form.company || form.name || 'AutoSensy website'}`, [
-      `Name: ${form.name || '-'}`,
-      `Company: ${form.company || '-'}`,
-      `Phone: ${form.phone || '-'}`,
-      `Email: ${form.email || '-'}`,
-      `Monthly WhatsApp volume: ${form.monthlyVolume || '-'}`,
-      `Primary use case: ${form.useCase || '-'}`,
-      '',
-      'Message:',
-      form.message || '-',
-    ])
-  }, [form])
+  const whatsappHref = createWhatsAppHref('Hi AutoSensy, I want a demo.')
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -163,71 +170,50 @@ export default function ContactPage() {
     setForm((current) => ({ ...current, [name]: value }))
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
 
-    setSubmitState('submitting')
-    setSubmitMessage('')
+    const demoRequestHref = createWhatsAppHref(createDemoRequestMessage(form))
+    window.open(demoRequestHref, '_blank', 'noopener,noreferrer')
 
-    try {
-      await submitFormToInbox({
-        formName: 'Demo Request',
-        subject: `Demo request from ${form.company || form.name || 'AutoSensy website'}`,
-        fields: {
-          name: form.name,
-          company: form.company,
-          phone: form.phone,
-          email: form.email,
-          monthly_volume: form.monthlyVolume,
-          primary_use_case: form.useCase,
-          message: form.message,
-          source_page: 'Contact Page',
-        },
-      })
-
-      setSubmitState('success')
-      setSubmitMessage('Your demo request has been sent to autosensy@gmail.com.')
-      setForm(INITIAL_FORM)
-    } catch (error) {
-      setSubmitState('error')
-      setSubmitMessage(error.message || 'Automatic email delivery failed. Use the direct email link below.')
-    }
+    setSubmitState('success')
+    setSubmitMessage('WhatsApp opened with your demo request. Send the message there to complete it.')
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
       <motion.div
-        className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 md:p-14"
+        className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-8 md:p-14"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.55, ease: 'easeOut' }}
       >
-        <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
             <p className="inline-flex rounded-full bg-[var(--accent-soft)] px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
               Book a Demo
             </p>
-            <h1 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">Tell us how you want to use WhatsApp</h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+            <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">Tell us how you want to use WhatsApp</h1>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base md:text-lg md:leading-relaxed">
               Share your workflow, expected conversation volume, and team setup. We&apos;ll use that to tailor the product
               walkthrough instead of giving you a generic pitch.
             </p>
 
-            <div className="mt-10 space-y-4">
+            <div className="mt-8 space-y-4 sm:mt-10">
               {contactItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                  className="flex items-start gap-3 py-2"
+                  className="flex min-w-0 items-start gap-3 py-2"
                 >
                   <span className="inline-flex size-10 items-center justify-center rounded-full bg-[var(--accent-soft)]">
                     <item.icon className="size-4 text-[var(--accent)]" />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold">{item.label}</span>
+                    <span className="block break-all text-sm font-semibold">{item.label}</span>
                     <span className="block text-sm text-[var(--muted)]">{item.helper}</span>
                   </span>
                 </a>
@@ -235,10 +221,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="card-shadow-soft rounded-3xl border border-[var(--border)] bg-[var(--surface-strong)] p-6 md:p-8">
-            <h2 className="text-2xl font-bold">Request your walkthrough</h2>
+          <div className="card-shadow-soft rounded-3xl border border-[var(--border)] bg-[var(--surface-strong)] p-5 sm:p-6 md:p-8">
+            <h2 className="text-xl font-bold sm:text-2xl">Request your walkthrough</h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              Submit the form and the full request will be sent to our inbox directly.
+              Submit the form and your full request will open as a WhatsApp message.
             </p>
 
             <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
@@ -250,7 +236,7 @@ export default function ContactPage() {
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
+                  className="w-full min-w-0 rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
                   placeholder="Enter your name"
                 />
               </label>
@@ -263,7 +249,7 @@ export default function ContactPage() {
                   name="company"
                   value={form.company}
                   onChange={handleChange}
-                  className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
+                  className="w-full min-w-0 rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
                   placeholder="Your company name"
                 />
               </label>
@@ -277,7 +263,7 @@ export default function ContactPage() {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
+                    className="w-full min-w-0 rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
                     placeholder="Enter your contact number"
                   />
                 </label>
@@ -290,7 +276,7 @@ export default function ContactPage() {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
+                    className="w-full min-w-0 rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
                     placeholder="Enter your email address"
                   />
                 </label>
@@ -321,16 +307,16 @@ export default function ContactPage() {
                   value={form.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
+                  className="w-full min-w-0 rounded-2xl border border-[var(--border)] bg-white px-4 py-3 text-sm"
                   placeholder="Describe your current process, team size, CRM, or any blockers."
                 />
               </label>
 
               <div className="flex flex-wrap gap-3 pt-2">
-                <GlowButton type="submit" disabled={submitState === 'submitting'}>
-                  {submitState === 'submitting' ? 'Sending...' : 'Send Demo Request'}
+                <GlowButton type="submit" disabled={submitState === 'submitting'} className="w-full sm:w-auto">
+                  {submitState === 'submitting' ? 'Opening WhatsApp...' : 'Send on WhatsApp'}
                 </GlowButton>
-                <GlowButton href={whatsappHref} variant="secondary">
+                <GlowButton href={whatsappHref} variant="secondary" className="w-full sm:w-auto">
                   Chat on WhatsApp
                 </GlowButton>
               </div>
@@ -340,13 +326,7 @@ export default function ContactPage() {
               )}
 
               {submitState === 'error' && (
-                <p className="text-sm text-[var(--muted)]">
-                  {submitMessage}{' '}
-                  <a className="font-semibold text-[var(--accent)]" href={mailtoHref}>
-                    this direct email link
-                  </a>
-                  .
-                </p>
+                <p className="text-sm text-[var(--muted)]">{submitMessage}</p>
               )}
             </form>
           </div>

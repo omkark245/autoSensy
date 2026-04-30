@@ -10,11 +10,11 @@ export default function HomePage({ goTo }) {
   return (
     <>
       <HomeHeroSection goTo={goTo} />
-      <HomeWhyWhatsAppSection />
       <ClientMarqueeStrip />
+      <HomeWhyWhatsAppSection />
+      <HomeTestimonialsSection />
       <HomeFeaturesSection goTo={goTo} />
       <HomeVisualSection />
-      <HomeTestimonialsSection />
       <HomeOnboardingSection goTo={goTo} />
     </>
   )

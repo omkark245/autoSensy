@@ -19,7 +19,7 @@ function FloatingBubbles() {
       {FLOATING_BUBBLES.map((bubble, index) => (
         <motion.div
           key={index}
-          className="absolute z-10 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-xs font-semibold shadow-xl backdrop-blur-md"
+          className="absolute z-10 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-xs font-semibold shadow-xl"
           style={{ left: bubble.x, top: bubble.y }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: [0, 1, 1, 0], y: [20, 0, -6, -12] }}
@@ -86,7 +86,7 @@ function StatCard({ item, index }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, type: 'spring', stiffness: 120 }}
       whileHover={{ y: -2, transition: { duration: 0.1, ease: [0.22, 1, 0.36, 1] } }}
-      className="card-glass card-no-accent group relative cursor-default overflow-hidden rounded-2xl border border-[var(--border)] p-5"
+      className="card-glass card-no-accent group relative cursor-default overflow-hidden rounded-2xl border border-[var(--border)] p-4 sm:p-5"
     >
       <motion.div
         className="absolute -right-4 -top-4 size-16 rounded-full opacity-10"
@@ -104,27 +104,42 @@ function StatCard({ item, index }) {
 export default function HomeHeroSection({ goTo }) {
   const shouldReduceMotion = useReducedMotion()
   const heroRef = useRef(null)
+  const [desktopScrollEffect, setDesktopScrollEffect] = useState(false)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 80])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)')
+    const syncDesktopScrollEffect = () => setDesktopScrollEffect(mediaQuery.matches)
+
+    syncDesktopScrollEffect()
+    mediaQuery.addEventListener('change', syncDesktopScrollEffect)
+
+    return () => mediaQuery.removeEventListener('change', syncDesktopScrollEffect)
+  }, [])
+
+  const heroMotionStyle = !shouldReduceMotion && desktopScrollEffect
+    ? { y: heroY, opacity: heroOpacity }
+    : undefined
+
   return (
-    <section ref={heroRef} className="relative overflow-hidden px-6 pb-16 pt-16 md:pt-28">
+    <section ref={heroRef} className="relative overflow-hidden px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-16 md:pt-24 lg:pt-28">
       <GridBackground />
       {!shouldReduceMotion && <FloatingBubbles />}
 
       <motion.div
-        style={shouldReduceMotion ? undefined : { y: heroY, opacity: heroOpacity }}
+        style={heroMotionStyle}
         className="relative z-10 mx-auto max-w-7xl"
       >
-        <div className="grid items-center gap-14 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
 
           {/* LEFT COLUMN */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
-            className="space-y-7"
+            className="space-y-6 sm:space-y-7"
           >
             <motion.p
               className="section-badge inline-flex items-center gap-2"
@@ -136,7 +151,7 @@ export default function HomeHeroSection({ goTo }) {
             </motion.p>
 
             <motion.h1
-              className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl"
+              className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6 }}
@@ -150,7 +165,7 @@ export default function HomeHeroSection({ goTo }) {
             </motion.h1>
 
             <motion.p
-              className="max-w-xl text-lg text-[var(--muted)]"
+              className="max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -160,7 +175,7 @@ export default function HomeHeroSection({ goTo }) {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.5 }}
@@ -168,6 +183,7 @@ export default function HomeHeroSection({ goTo }) {
               <GlowButton
                 href="/features"
                 onClick={(e) => { e.preventDefault(); goTo('/features') }}
+                className="w-full sm:w-auto"
               >
                 Explore Features <ArrowRight className="size-4" />
               </GlowButton>
@@ -175,13 +191,14 @@ export default function HomeHeroSection({ goTo }) {
                 href="/use-cases"
                 onClick={(e) => { e.preventDefault(); goTo('/use-cases') }}
                 variant="secondary"
+                className="w-full sm:w-auto"
               >
                 <Play className="size-4" /> View Use Cases
               </GlowButton>
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap items-center gap-5 pt-2"
+              className="flex flex-wrap items-center gap-3 pt-2 sm:gap-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
@@ -195,23 +212,23 @@ export default function HomeHeroSection({ goTo }) {
           </motion.div>
 
           {/* RIGHT COLUMN */}
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <motion.figure
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
-              className="-mt-4 overflow-hidden rounded-3xl md:-mt-8"
+              className="overflow-hidden rounded-3xl lg:-mt-8"
             >
               <img
                 src={`${HERO_EASY_INTEGRATION_IMAGE}?v=${ASSET_VERSION}`}
                 alt="Easy integration visual"
-                className="h-[320px] w-full rounded-3xl object-contain object-top md:h-[385px]"
+                className="h-[240px] w-full rounded-3xl object-contain object-top sm:h-[310px] md:h-[360px] lg:h-[385px]"
                 loading="eager"
                 draggable={false}
               />
             </motion.figure>
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {HERO_STATS.map((item, index) => (
                 <StatCard key={item.label} item={item} index={index} />
               ))}

@@ -2,11 +2,23 @@ import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 
 const CLIENTS = [
-  'InsuranceMajha',
-  'IT Roots',
-  'A & I Vendor',
-  'Mechnnovation Technologies',
-  'Spyra Exim',
+  {
+    name: 'IT Roots',
+    logo: '/assets/clients/itroots-logo.webp',
+  },
+  {
+    name: 'InsuranceMajha',
+    logo: '/assets/clients/insurance-majha-logo.jpeg',
+  },
+  {
+    name: 'Quick Print Technology',
+    logo: '/assets/clients/quick-print-logo.png',
+    scale: 0.6,
+  },
+  {
+    name: 'Mechnnovation Technologies',
+    logo: '/assets/clients/mechnnovation-logo.svg',
+  },
 ]
 
 const MARQUEE_ITEMS = [...CLIENTS, ...CLIENTS, ...CLIENTS]
@@ -23,43 +35,43 @@ export default function ClientMarqueeStrip() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, ease: 'easeOut' }}
       aria-label="Trusted by businesses"
-      className="mx-auto max-w-7xl px-6 py-10"
+      className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10"
     >
       {/* divider + label */}
-      <div className="mb-5 flex items-center gap-4">
+      <div className="mb-5 flex items-center gap-3 sm:gap-4">
         <div className="h-px flex-1 bg-[var(--border)]" />
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--muted)] opacity-60">
+        <p className="text-center text-sm font-bold uppercase tracking-widest text-black sm:text-base">
           Trusted by businesses
         </p>
         <div className="h-px flex-1 bg-[var(--border)]" />
       </div>
 
-      {/* marquee track */}
-      <div className="relative w-full overflow-hidden py-2">
-        {/* left fade */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--bg)] to-transparent" />
-        {/* right fade */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[var(--bg)] to-transparent" />
+      <div className="relative w-full overflow-hidden py-6">
 
         <div
-          className="flex w-max gap-5"
+          className="flex w-max items-center gap-7 sm:gap-10"
           style={
             shouldReduceMotion
               ? undefined
-              : { animation: 'clientMarquee 28s linear infinite' }
+              : { animation: 'clientMarquee 30s linear infinite' }
           }
         >
-          {MARQUEE_ITEMS.map((name, i) => (
-            <span
-              key={i}
-              className="flex shrink-0 items-center gap-2.5 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-2 text-[13px] font-semibold text-[var(--muted)] shadow-sm transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent-text)]"
+          {MARQUEE_ITEMS.map((client, i) => (
+            <div
+              key={`${client.name}-${i}`}
+              className="flex h-20 w-[14rem] shrink-0 items-center justify-center px-4 sm:h-24 sm:w-[18rem] sm:px-6"
+              aria-label={client.name}
+              style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
             >
-              <span
-                className="inline-block size-1.5 shrink-0 rounded-full"
-                style={{ background: 'var(--accent)' }}
+              <img
+                src={client.logo}
+                alt={`${client.name} logo`}
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+                className="block h-full w-full object-contain"
               />
-              {name}
-            </span>
+            </div>
           ))}
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function SectionHeader({ badge, title, subtitle }) {
   return (
     <motion.div
       ref={ref}
-      className="mb-12 max-w-3xl"
+      className="mb-8 max-w-3xl sm:mb-10 md:mb-12"
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -22,7 +22,7 @@ export default function SectionHeader({ badge, title, subtitle }) {
         {badge}
       </motion.p>
       <motion.h2
-        className="mt-4 text-2xl font-bold leading-tight md:text-3xl lg:text-4xl"
+        className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -30,7 +30,7 @@ export default function SectionHeader({ badge, title, subtitle }) {
         {title}
       </motion.h2>
       <motion.p
-        className="mt-4 text-base text-[var(--muted)] md:text-lg"
+        className="mt-4 text-sm leading-7 text-[var(--muted)] sm:text-base md:text-lg"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.35 }}

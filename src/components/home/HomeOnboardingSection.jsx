@@ -14,8 +14,8 @@ export default function HomeCtaSection({ goTo }) {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12" id="get-started">
-      <div className="relative overflow-hidden rounded-3xl bg-[var(--accent)] px-8 py-12 text-center md:px-16 md:py-14">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12" id="get-started">
+      <div className="relative overflow-hidden rounded-3xl bg-[var(--accent)] px-5 py-10 text-center sm:px-8 sm:py-12 md:px-16 md:py-14">
 
         {/* ── decorative circles ── */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -64,7 +64,7 @@ export default function HomeCtaSection({ goTo }) {
             {FLOATING_PILLS.map((pill, i) => (
               <motion.span
                 key={i}
-                className="absolute hidden rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-sm lg:block"
+                className="absolute hidden rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white lg:block"
                 style={{ left: pill.x, top: pill.y }}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export default function HomeCtaSection({ goTo }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.55 }}
-            className="text-3xl font-black leading-tight tracking-tight text-white md:text-5xl"
+            className="text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-5xl"
           >
             Ready to grow with WhatsApp?
           </motion.h2>
@@ -98,7 +98,7 @@ export default function HomeCtaSection({ goTo }) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.25, duration: 0.55 }}
-            className="mt-5 text-[1.05rem] leading-7 text-white/80"
+            className="mt-5 text-sm leading-7 text-white/80 sm:text-[1.05rem]"
           >
             Launch campaigns, automate follow-ups, and close more deals — all from one
             WhatsApp platform built on official APIs.
@@ -114,7 +114,7 @@ export default function HomeCtaSection({ goTo }) {
           >
             <a
               href={DEMO_CALL_HREF}
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-[var(--accent)] shadow-[0_4px_24px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.22)]"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-[var(--accent)] shadow-[0_4px_24px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.22)] sm:w-auto"
             >
               Call for Demo
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />

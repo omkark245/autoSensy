@@ -30,8 +30,17 @@
   box-sizing: border-box;
 }
 
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -42,7 +51,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,15 +72,13 @@ h1, h2, h3, h4, h5, h6 {
     radial-gradient(900px 500px at 5% 5%, var(--glow-1), transparent 60%),
     radial-gradient(820px 440px at 95% 10%, var(--glow-2), transparent 58%),
     linear-gradient(180deg, var(--bg-grad-top) 0%, var(--bg) 100%);
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 /* Card Glass */
 .card-glass {
   position: relative;
   background-color: var(--surface);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 14px 36px rgba(2, 28, 16, 0.085), 0 4px 12px rgba(2, 28, 16, 0.042), 0 1px 0 rgba(255,255,255,0.04) inset;
   transition: box-shadow 120ms ease-out, transform 120ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -130,8 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 300px;
   width: 300px;
   border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.3;
+  opacity: 0;
   background: linear-gradient(130deg, color-mix(in srgb, var(--accent) 28%, #fff 72%), transparent 68%);
   animation: floatPulse 7s ease-in-out infinite;
 }
@@ -311,8 +323,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 

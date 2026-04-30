@@ -17,7 +17,7 @@ export default function SiteHeader({ pathname, menuOpen, onToggleMenu, goTo }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4" aria-label="Primary">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4" aria-label="Primary">
         <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
           <AppLink
             to="/"
@@ -26,18 +26,18 @@ export default function SiteHeader({ pathname, menuOpen, onToggleMenu, goTo }) {
             className="inline-flex items-center"
             aria-label="AutoSensy home"
           >
-            <BrandLogo className="h-11 w-auto sm:h-12" alt="AutoSensy" />
+            <BrandLogo className="h-9 w-auto sm:h-12" alt="AutoSensy" />
           </AppLink>
         </motion.div>
 
-        <div className="hidden gap-1 text-sm md:flex">
+        <div className="hidden gap-1 text-base md:flex">
           {MAIN_ROUTES.map((item) => (
             <motion.div key={item.path} whileHover={{ y: -1 }}>
               <AppLink
                 to={item.path}
                 goTo={goTo}
                 current={activeMain?.path === item.path}
-                className={`relative block rounded-full px-3 py-1.5 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[40%] after:-translate-x-1/2 after:scale-x-0 after:rounded-full after:bg-[var(--accent)] after:opacity-0 after:transition after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100 hover:after:opacity-100 ${
+                className={`relative block rounded-full px-3 py-1.5 font-bold after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[40%] after:-translate-x-1/2 after:scale-x-0 after:rounded-full after:bg-[var(--accent)] after:opacity-0 after:transition after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100 hover:after:opacity-100 ${
                   activeMain?.path === item.path
                     ? 'text-[var(--accent)] after:scale-x-100 after:opacity-100'
                     : 'text-[var(--muted)] hover:text-[var(--accent)]'
@@ -54,7 +54,7 @@ export default function SiteHeader({ pathname, menuOpen, onToggleMenu, goTo }) {
             href={DEMO_CALL_HREF}
             className="hidden sm:inline-flex"
           >
-            Call for  Demo <Phone className="size-3.5" />
+            Call for Demo <Phone className="size-3.5" />
           </GlowButton>
 
           <motion.button

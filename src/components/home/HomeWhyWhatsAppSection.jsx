@@ -27,7 +27,7 @@ function ChatPreview() {
 
   return (
     <motion.div
-      className="relative mx-auto max-w-[17.25rem] overflow-hidden rounded-[1.65rem] border border-[var(--border)] bg-[var(--surface)] shadow-[0_22px_42px_rgba(2,28,16,0.11)]"
+      className="relative mx-auto w-full max-w-[17.25rem] overflow-hidden rounded-[1.65rem] border border-[var(--border)] bg-[var(--surface)] shadow-[0_22px_42px_rgba(2,28,16,0.11)]"
       initial={{ opacity: 0, y: 40, rotateX: 10 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       viewport={{ once: true }}
@@ -95,10 +95,10 @@ function ChatPreview() {
 
 export default function HomeWhyWhatsAppSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20" id="why-whatsapp">
-      <div className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 md:p-14">
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20" id="why-whatsapp">
+      <div className="card-shadow-soft main-card-accent relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-8 md:p-14">
         <GridBackground />
-        <div className="relative z-10 grid items-center gap-12 lg:grid-cols-2">
+        <div className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
             <SectionHeader
               badge="Why WhatsApp"

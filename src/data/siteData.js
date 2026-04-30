@@ -1,6 +1,6 @@
 import { BarChart3, Globe, TrendingUp, Zap } from 'lucide-react'
 
-export const ASSET_VERSION = '20260304b'
+export const ASSET_VERSION = '20260321c'
 export const HERO_EASY_INTEGRATION_IMAGE = '/assets/svg/easy-integration-1-1-e1741594017522.webp'
 export const HERO_SECTION_IMAGE = '/assets/svg/hero-section-image-1536x840.webp'
 
@@ -39,10 +39,10 @@ export const HOME_FEATURE_CARDS = [
     alt: 'Campaigns feature icon',
   },
   {
-    title: 'Chat-Bot',
-    text: 'Engage customers 24/7 with intelligent chatbot responses and instant routing.',
+    title: 'Auto Replies',
+    text: 'Send instant automatic replies to common customer questions and keep responses fast across WhatsApp conversations.',
     image: '/assets/features/chatbot.webp',
-    alt: 'Chatbot feature icon',
+    alt: 'Auto replies feature icon',
   },
 ]
 
@@ -75,39 +75,52 @@ export const PRICING_PLANS = [
     highlight: 'Monthly and yearly billing',
     status: 'active',
     options: [
-      { label: 'Monthly', price: 'Rs. 1,800', cadence: 'per month' },
-      { label: 'Yearly', price: 'Rs. 14,000', cadence: 'per year' },
+      { label: 'Monthly', price: 'Rs. 500', cadence: 'per month' },
+      { label: 'Yearly', price: 'Rs. 5,000', cadence: 'per year' },
     ],
     points: ['Choose a flexible monthly plan or a lower annual billing option', 'Suitable for businesses that want predictable recurring subscriptions', 'Built for ongoing platform usage with simple billing cycles'],
   },
   {
     name: 'Lifetime Plan',
-    price: 'Coming Soon',
-    cadence: 'upcoming plan',
-    highlight: 'Planned future offering',
-    status: 'coming-soon',
-    points: ['A lifetime billing option is currently in planning', 'Final pricing and terms will be announced separately', 'Contact us if you want to receive launch updates first'],
+    price: 'Contact Us on WhatsApp',
+    cadence: 'to discuss lifetime plan details',
+    highlight: 'Message us for plan details',
+    status: 'whatsapp-contact',
+    whatsappHref: 'https://wa.me/919960756292?text=Hi%20AutoSensy%2C%20I%20want%20to%20know%20about%20the%20Lifetime%20Plan.',
+    points: ['Message our team to get lifetime plan details', 'Share your business needs and setup requirements', 'Get pricing, onboarding, and next steps directly on WhatsApp'],
   },
 ]
 
 export const TESTIMONIALS = [
   {
-    quote: 'AutoSensy helped us capture website leads, automate follow-ups, and maintain faster response times on WhatsApp during active campaigns.',
-    company: 'Arnav',
-    clientCompany: 'Avenue Brokers',
+    quote: 'IT Roots uses AutoSensy to manage student inquiries, automate follow-ups, and keep WhatsApp communication organized from one dashboard.',
+    company: 'ITRoots',
+    clientCompany: 'Education and training',
     rating: 5,
+    initials: 'RP',
+    personName: 'Rahul Naik',
+    personRole: 'Founder, ITRoots',
+    personImage: '/assets/img/Rahul_Naik.avif',
   },
   {
-    quote: 'We use AutoSensy to manage student inquiries, send reminders, and handle routine chatbot conversations from one dashboard.',
-    company: 'Riya',
-    clientCompany: 'EduPath Academy',
+    quote: 'InsuranceMajha uses AutoSensy to handle lead capture, customer follow-ups, and faster WhatsApp responses for policy inquiries.',
+    company: 'InsuranceMajha',
+    clientCompany: 'Insurance services',
     rating: 5,
+    initials: 'PJ',
+    personName: 'Pooja Mohite',
+    personRole: 'Director, InsuranceMajha',
+    personImage: '/assets/img/femal.jpg',
   },
   {
-    quote: 'AutoSensy gives our team one place to manage customer chats, campaign follow-ups, and ongoing WhatsApp communication without losing lead context.',
-    company: 'Seema',
-    clientCompany: 'Tele Infotech',
+    quote: 'Mechnnovation Technologies uses AutoSensy to manage customer chats, campaign follow-ups, and routine WhatsApp communication without losing context.',
+    company: 'Mechnnovation Technologies',
+    clientCompany: 'Technology services',
     rating: 5,
+    initials: 'AK',
+    personName: 'Prasad Kulkarni',
+    personRole: 'CEO, Mechnnovation Technologies',
+    personImage: '/assets/profiles/arjun-kulkarni.png',
   },
 ]
 
