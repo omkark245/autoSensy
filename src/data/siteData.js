@@ -93,7 +93,7 @@ export const PRICING_PLANS = [
 
 export const TESTIMONIALS = [
   {
-    quote: 'IT Roots uses AutoSensy to manage student inquiries, automate follow-ups, and keep WhatsApp communication organized from one dashboard.',
+    quote: 'AutoSensy has made it much easier for our team to handle student enquiries and follow up on time. Everything stays in one place, so we are not jumping between chats anymore.',
     company: 'ITRoots',
     clientCompany: 'Education and training',
     rating: 5,
@@ -103,7 +103,7 @@ export const TESTIMONIALS = [
     personImage: '/assets/img/Rahul_Naik.avif',
   },
   {
-    quote: 'InsuranceMajha uses AutoSensy to handle lead capture, customer follow-ups, and faster WhatsApp responses for policy inquiries.',
+    quote: 'We were looking for a simpler way to manage policy leads on WhatsApp, and AutoSensy has helped a lot. Follow-ups are faster now, and the team can respond without missing conversations.',
     company: 'InsuranceMajha',
     clientCompany: 'Insurance services',
     rating: 5,
@@ -113,7 +113,7 @@ export const TESTIMONIALS = [
     personImage: '/assets/img/femal.jpg',
   },
   {
-    quote: 'Mechnnovation Technologies uses AutoSensy to manage customer chats, campaign follow-ups, and routine WhatsApp communication without losing context.',
+    quote: 'AutoSensy helps us keep customer chats and follow-ups properly organized. It has reduced a lot of manual back-and-forth for the team and made daily communication smoother.',
     company: 'Mechnnovation Technologies',
     clientCompany: 'Technology services',
     rating: 5,

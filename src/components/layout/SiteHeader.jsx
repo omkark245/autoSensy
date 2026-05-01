@@ -30,7 +30,7 @@ export default function SiteHeader({ pathname, menuOpen, onToggleMenu, goTo }) {
           </AppLink>
         </motion.div>
 
-        <div className="hidden gap-1 text-base md:flex">
+        <div className="hidden gap-1 text-[15.5px] md:flex">
           {MAIN_ROUTES.map((item) => (
             <motion.div key={item.path} whileHover={{ y: -1 }}>
               <AppLink

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const CHAT_DASHBOARD_IMAGE = '/assets/img/dashboard-preview.png?v=20260430b'
+const CHAT_DASHBOARD_IMAGE = '/assets/img/dashboard.png?v=20260430b'
 
 export default function HomeVisualSection() {
   return (

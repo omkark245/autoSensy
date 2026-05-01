@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, QrCode } from 'lucide-react'
-import { FEATURES_LIST, MAIN_ROUTES } from '../../data/siteData'
+import { Mail, MapPin, Phone, QrCode } from 'lucide-react'
+import { MAIN_ROUTES } from '../../data/siteData'
 import AppLink from '../navigation/AppLink'
 import BrandLogo from './BrandLogo'
 import GridBackground from './GridBackground'
 
 export default function SiteFooter({ goTo, pathname }) {
-  const featuredLinks = FEATURES_LIST.slice(0, 4)
-
   return (
     <motion.footer
       className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--surface-strong)] px-4 py-10 sm:px-6 sm:py-12"
@@ -59,25 +57,19 @@ export default function SiteFooter({ goTo, pathname }) {
                   <Mail className="size-4 shrink-0 text-[var(--accent)]" />
                   <span className="min-w-0 break-all">autosensy@gmail.com</span>
                 </a>
+                <div className="flex items-start gap-3 text-sm text-[var(--text)]">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--accent)]" />
+                  <span>2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46</span>
+                </div>
                 <a
                   href="tel:+919960756292"
                   className="flex items-center gap-3 text-sm text-[var(--text)]"
                 >
+            
                   <Phone className="size-4 shrink-0 text-[var(--accent)]" />
                   <span>9960756292</span>
                 </a>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold text-[var(--text)]">Core Features</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-3">
-                {featuredLinks.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-2 text-sm text-[var(--muted)]">
-                    <span className="size-1.5 rounded-full bg-[var(--accent)]" />
-                    <span>{item}</span>
-                  </span>
-                ))}
+                
               </div>
             </div>
           </div>
@@ -123,6 +115,10 @@ export default function SiteFooter({ goTo, pathname }) {
                 <Mail className="size-4 shrink-0 text-[var(--accent)]" />
                 <span className="min-w-0 break-all text-sm text-[var(--text)]">autosensy@gmail.com</span>
               </a>
+              <div className="flex items-start gap-3 rounded-2xl bg-[var(--surface)] px-4 py-3">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--accent)]" />
+                <span className="text-sm text-[var(--text)]">2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46</span>
+              </div>
               <a
                 href="tel:+919960756292"
                 className="flex items-center gap-3 rounded-2xl bg-[var(--surface)] px-4 py-3 transition-colors hover:text-[var(--text)]"
@@ -130,20 +126,7 @@ export default function SiteFooter({ goTo, pathname }) {
                 <Phone className="size-4 shrink-0 text-[var(--accent)]" />
                 <span className="text-sm text-[var(--text)]">9960756292</span>
               </a>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold text-[var(--text)]">Core Features</p>
-            <div className="mt-4 flex flex-col gap-3">
-              {featuredLinks.map((item) => (
-                <p
-                  key={item}
-                  className="text-sm text-[var(--muted)]"
-                >
-                  {item}
-                </p>
-              ))}
+              
             </div>
           </div>
         </div>

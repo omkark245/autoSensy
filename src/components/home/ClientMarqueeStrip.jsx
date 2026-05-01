@@ -4,11 +4,12 @@ import { useRef } from 'react'
 const CLIENTS = [
   {
     name: 'IT Roots',
-    logo: '/assets/clients/itroots-logo.webp',
+    logo: '/assets/clients/itroots.png',
   },
   {
     name: 'InsuranceMajha',
-    logo: '/assets/clients/insurance-majha-logo.jpeg',
+    logo: '/assets/clients/insurancemajha.png',
+    widthClass: 'w-[18rem] sm:w-[23rem]',
   },
   {
     name: 'Quick Print Technology',
@@ -59,7 +60,7 @@ export default function ClientMarqueeStrip() {
           {MARQUEE_ITEMS.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
-              className="flex h-20 w-[14rem] shrink-0 items-center justify-center px-4 sm:h-24 sm:w-[18rem] sm:px-6"
+              className={`flex h-20 w-[14rem] shrink-0 items-center justify-center px-4 sm:h-24 sm:w-[18rem] sm:px-6 ${client.widthClass ?? ''}`}
               aria-label={client.name}
               style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
             >

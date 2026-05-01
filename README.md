@@ -56,4 +56,4 @@ src/
 - This project currently uses a lightweight internal router instead of `react-router`.
 - The contact and inquiry forms send submissions to `autosensy@gmail.com` through FormSubmit, with a direct `mailto:` fallback if delivery fails.
 
-#Vaibhav Mhamane
+
