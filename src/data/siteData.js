@@ -75,8 +75,8 @@ export const PRICING_PLANS = [
     highlight: 'Monthly and yearly billing',
     status: 'active',
     options: [
-      { label: 'Monthly', price: 'Rs. 500', cadence: 'per month' },
-      { label: 'Yearly', price: 'Rs. 5,000', cadence: 'per year' },
+      { label: 'Monthly', price: 'Rs. 800', originalPrice: 'Rs. 1,000', cadence: 'per month', discount: '20% OFF' },
+      { label: 'Yearly', price: 'Rs. 8,000', originalPrice: 'Rs. 10,000', cadence: 'per year', discount: '20% OFF' },
     ],
     points: ['Choose a flexible monthly plan or a lower annual billing option', 'Suitable for businesses that want predictable recurring subscriptions', 'Built for ongoing platform usage with simple billing cycles'],
   },

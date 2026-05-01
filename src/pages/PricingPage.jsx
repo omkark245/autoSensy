@@ -66,8 +66,20 @@ function PricingCard({ plan, index, goTo, billingCycle }) {
         <div className="mt-8">
           {hasOptions && activeOption ? (
             <>
-              <p className="text-sm font-semibold text-[var(--accent)]">{activeOption.label} Billing</p>
-              <p className="mt-4 text-4xl font-black leading-none tracking-tight sm:text-5xl">{activeOption.price}</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="text-sm font-semibold text-[var(--accent)]">{activeOption.label} Billing</p>
+                {activeOption.discount ? (
+                  <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
+                    {activeOption.discount}
+                  </span>
+                ) : null}
+              </div>
+              {activeOption.originalPrice ? (
+                <p className="mt-4 text-lg font-semibold text-[var(--muted)] line-through decoration-2">
+                  {activeOption.originalPrice}
+                </p>
+              ) : null}
+              <p className="mt-2 text-4xl font-black leading-none tracking-tight sm:text-5xl">{activeOption.price}</p>
               <p className="mt-3 text-sm text-[var(--muted)]">{activeOption.cadence}</p>
             </>
           ) : (
