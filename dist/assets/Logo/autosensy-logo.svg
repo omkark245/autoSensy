@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" fill="none">
+  <path
+    d="M70 22C47.9 22 30 39.9 30 62c0 8.2 2.5 15.8 6.7 22.1L31 106l24.9-6.3c4.3 1.5 9 2.3 14.1 2.3 22.1 0 40-17.9 40-40S92.1 22 70 22Z"
+    fill="#03ba6a"
+  />
+  <path
+    d="M57 45.5 90.5 62 57 78.5V66.5H45v-9h12V45.5Z"
+    fill="#fff"
+  />
+  <text
+    x="130"
+    y="77"
+    fill="#111827"
+    font-family="Inter, Segoe UI, Arial, sans-serif"
+    font-size="54"
+    font-weight="700"
+    letter-spacing="-1"
+  >
+    AutoSensy
+  </text>
+</svg>

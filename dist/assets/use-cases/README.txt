@@ -1,0 +1,13 @@
+Add the exact use-case images with these filenames:
+- use-case-01-personalization.jpg
+- use-case-02-payments-reminders.jpg
+- use-case-03-restaurant-payments.jpg
+- use-case-04-order-tracking-feedback.jpg
+- use-case-05-invoice-delivery.jpg
+- use-case-06-website-chat-widget.jpg
+- use-case-07-catalog-commerce.jpg
+- use-case-08-instagram-to-whatsapp.jpg
+- use-case-09-travel-bookings.jpg
+- use-case-10-education-timetable.jpg
+- use-case-11-real-estate-brochure.jpg
+- use-case-12-automobile-service.jpg
