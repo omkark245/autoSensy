@@ -1,7 +1,7 @@
-<svg width="300" height="92" viewBox="0 0 300 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="45" cy="46" r="26" fill="#E8FFF2"/>
-  <path d="M45 21v9M45 62v9M20 46h9M61 46h9M27 28l7 7M56 57l7 7M63 28l-7 7M34 57l-7 7" stroke="#0BBF6A" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="45" cy="46" r="11" fill="#0BBF6A"/>
-  <text x="88" y="45" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#111827">Mechnnovation</text>
-  <text x="88" y="68" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#64748B">Technologies</text>
+<svg width="460" height="64" viewBox="0 0 460 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="22" fill="#e0fbe9"/>
+  <path d="M32 12v8M32 44v8M10 32h8M46 32h8M16 16l6 6M42 42l6 6M48 16l-6 6M22 42l-6 6" stroke="#25d366" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="9" fill="#25d366"/>
+  <text x="68" y="40" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#111827">Mechnnovation</text>
+  <text x="246" y="40" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#64748B"> Technologies</text>
 </svg>
