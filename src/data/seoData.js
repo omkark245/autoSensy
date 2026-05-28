@@ -5,9 +5,21 @@ export const SITE_LOGO = '/assets/Logo/breathing-space-final-logo-1.webp'
 export const SITE_IMAGE = '/assets/svg/hero-section-image-1536x840.webp'
 export const CONTACT_EMAIL = 'autosensy@gmail.com'
 export const CONTACT_PHONE = '+919960756292'
-export const BRAND_ALIASES = ['Auto Sensy', 'autosensy', 'AutoSensy.in', 'AutoSensy WhatsApp']
+export const INSTAGRAM_URL = 'https://www.instagram.com/autosensy/'
+export const SOCIAL_PROFILES = [INSTAGRAM_URL]
+export const CLIENT_PROFILES = [
+  {
+    name: 'IT Roots',
+    url: 'https://itroots.co.in/',
+    type: 'Education and IT training',
+  },
+]
+export const BRAND_ALIASES = ['Auto Sensy', 'autosensy', 'AutoSensy.in', 'AutoSensy official website', 'AutoSensy WhatsApp']
 export const CORE_TOPICS = [
   'AutoSensy',
+  'autosensy',
+  'autosensy.in',
+  'AutoSensy official website',
   'WhatsApp marketing platform',
   'WhatsApp automation software',
   'WhatsApp Business API',
@@ -56,9 +68,47 @@ export const FAQ_ITEMS = [
     question: 'Does AutoSensy provide refunds or cancellations?',
     answer: 'No. AutoSensy does not provide refunds or cancellations after payment, subscription confirmation, onboarding, setup, or service confirmation.',
   },
+  {
+    question: 'Is AutoSensy the same as AutoSense?',
+    answer: 'No. AutoSensy is the official brand name of autosensy.in, a WhatsApp marketing automation platform. AutoSense is a different search term and is not the AutoSensy website.',
+  },
 ]
 
 export const SEO_CONTENT_PAGES = [
+  {
+    path: '/autosensy',
+    routeType: 'brand',
+    badge: 'Official Brand',
+    title: 'AutoSensy Official Website | autosensy.in',
+    description: 'AutoSensy is the official WhatsApp marketing automation platform at autosensy.in. AutoSensy helps businesses manage WhatsApp campaigns, chatbots, team inboxes, and customer follow-ups.',
+    keywords: 'AutoSensy, autosensy, autosensy.in, AutoSensy official website, AutoSensy WhatsApp automation, AutoSensy platform, AutoSensy India, AutoSensy Pune',
+    priority: '0.84',
+    changefreq: 'monthly',
+    heading: 'AutoSensy official website',
+    summary: 'AutoSensy is the official brand and website for autosensy.in, a WhatsApp marketing automation platform for campaigns, chatbots, team inboxes, forms, payments, and customer follow-ups.',
+    sections: [
+      {
+        title: 'About the AutoSensy brand',
+        text: 'AutoSensy is the exact brand name used by autosensy.in for WhatsApp-first marketing automation and customer communication workflows.',
+        points: ['Official brand: AutoSensy', 'Official domain: autosensy.in', 'Category: WhatsApp marketing automation platform', 'Focus: campaigns, chatbots, team inbox, forms, payments, and follow-ups'],
+      },
+      {
+        title: 'AutoSensy is not AutoSense',
+        text: 'AutoSensy and AutoSense are different names. Users searching for AutoSensy should use the exact spelling AutoSensy or autosensy.in to reach the official AutoSensy website.',
+        points: ['Correct spelling: AutoSensy', 'Official website: https://autosensy.in/', 'Official Instagram: https://www.instagram.com/autosensy/', 'Business focus: WhatsApp automation for businesses'],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the correct spelling of AutoSensy?',
+        answer: 'The correct spelling is AutoSensy. The official website is autosensy.in.',
+      },
+      {
+        question: 'Why does Google show AutoSense when searching AutoSensy?',
+        answer: 'Google may temporarily autocorrect new or low-authority brand searches to a more common term. Strong exact-brand signals, indexing, social profiles, and backlinks help Google learn the AutoSensy brand.',
+      },
+    ],
+  },
   {
     path: '/whatsapp-marketing-automation',
     routeType: 'service',
@@ -324,6 +374,144 @@ export const SEO_CONTENT_PAGES = [
         title: 'Travel workflows',
         text: 'Travel businesses can use WhatsApp automation to keep prospects and customers updated from inquiry to booking and post-trip follow-up.',
         points: ['Package inquiry follow-ups', 'Offer broadcasts', 'Trip detail updates', 'Payment and booking reminders'],
+      },
+    ],
+  },
+  {
+    path: '/blog',
+    routeType: 'collection',
+    badge: 'Blog',
+    title: 'AutoSensy Blog | WhatsApp Marketing Automation Guides',
+    description: 'Read AutoSensy guides on WhatsApp marketing automation, WhatsApp Business API, chatbot workflows, broadcast campaigns, and customer follow-up strategy.',
+    keywords: 'AutoSensy blog, WhatsApp marketing automation blog, WhatsApp Business API guide, WhatsApp chatbot guide, WhatsApp broadcast campaign tips',
+    priority: '0.68',
+    changefreq: 'monthly',
+    heading: 'AutoSensy blog and WhatsApp automation guides',
+    summary: 'Practical articles for businesses planning WhatsApp campaigns, chatbot journeys, lead follow-ups, and team inbox workflows.',
+    sections: [
+      {
+        title: 'Featured guides',
+        text: 'These articles support businesses that want to understand WhatsApp automation before choosing the right platform workflow.',
+        points: ['WhatsApp marketing automation fundamentals', 'WhatsApp Business API planning', 'Chatbot and follow-up workflow ideas', 'Campaign and team inbox best practices'],
+        links: [
+          { label: 'What is WhatsApp marketing automation?', href: '/blog/what-is-whatsapp-marketing-automation' },
+          { label: 'WhatsApp Business API for customer engagement', href: '/blog/whatsapp-business-api-customer-engagement' },
+        ],
+      },
+    ],
+  },
+  {
+    path: '/blog/what-is-whatsapp-marketing-automation',
+    routeType: 'article',
+    badge: 'Guide',
+    title: 'What Is WhatsApp Marketing Automation? | AutoSensy',
+    description: 'Learn what WhatsApp marketing automation means, how campaigns, chatbots, templates, and follow-ups work, and where AutoSensy helps business teams.',
+    keywords: 'what is WhatsApp marketing automation, WhatsApp automation guide, WhatsApp campaign automation, WhatsApp chatbot automation, AutoSensy guide',
+    priority: '0.66',
+    changefreq: 'monthly',
+    heading: 'What is WhatsApp marketing automation?',
+    summary: 'WhatsApp marketing automation helps businesses send timely campaigns, qualify leads, automate common replies, and manage customer follow-ups without relying only on manual chats.',
+    sections: [
+      {
+        title: 'How it works',
+        text: 'A WhatsApp automation workflow usually combines approved message templates, customer segments, chatbot steps, team handoff, and follow-up reminders.',
+        points: ['Template broadcast campaigns', 'Lead qualification flows', 'Automatic replies for common questions', 'Sales and support team handoff'],
+      },
+      {
+        title: 'Where AutoSensy fits',
+        text: 'AutoSensy is built for businesses that want one WhatsApp-first platform for campaigns, chatbots, team inbox workflows, forms, payments, and customer engagement.',
+        points: ['Marketing campaign planning', 'Customer communication workflows', 'Industry-specific WhatsApp use cases', 'Demo-led onboarding discussions'],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is WhatsApp marketing automation useful for small businesses?',
+        answer: 'Yes. Small and growing businesses can use WhatsApp automation to respond faster, follow up consistently, and keep customer conversations organized.',
+      },
+    ],
+  },
+  {
+    path: '/blog/whatsapp-business-api-customer-engagement',
+    routeType: 'article',
+    badge: 'Guide',
+    title: 'WhatsApp Business API for Customer Engagement | AutoSensy',
+    description: 'See how WhatsApp Business API workflows help businesses manage customer engagement, campaigns, reminders, support routing, and chatbot follow-ups.',
+    keywords: 'WhatsApp Business API customer engagement, WhatsApp API guide, WhatsApp API campaigns, WhatsApp API chatbot, AutoSensy Business API',
+    priority: '0.64',
+    changefreq: 'monthly',
+    heading: 'WhatsApp Business API for customer engagement',
+    summary: 'WhatsApp Business API workflows help teams communicate with customers at scale through template messaging, automation journeys, reminders, and team-based response handling.',
+    sections: [
+      {
+        title: 'Customer engagement use cases',
+        text: 'Businesses can use WhatsApp Business API workflows for marketing, support, reminders, lead nurturing, order communication, and post-sale updates.',
+        points: ['Campaign and template messaging', 'Appointment and payment reminders', 'Chatbot-led qualification', 'Team inbox support workflows'],
+      },
+      {
+        title: 'Planning before setup',
+        text: 'Before going live, teams should clarify messaging goals, customer segments, team responsibilities, template requirements, and follow-up rules.',
+        points: ['Define primary use cases', 'Prepare campaign templates', 'Plan chatbot handoff rules', 'Measure replies and conversions'],
+      },
+    ],
+  },
+  {
+    path: '/case-studies',
+    routeType: 'collection',
+    badge: 'Case Studies',
+    title: 'AutoSensy Case Studies | WhatsApp Automation Results',
+    description: 'Explore real AutoSensy customer stories and WhatsApp automation use cases, including education lead follow-ups, inquiry handling, and team inbox workflows.',
+    keywords: 'AutoSensy case studies, WhatsApp automation case study, IT Roots AutoSensy, WhatsApp education automation case study, AutoSensy clients',
+    priority: '0.68',
+    changefreq: 'monthly',
+    heading: 'AutoSensy customer case studies',
+    summary: 'Real customer examples showing how businesses use AutoSensy to organize WhatsApp inquiries, follow-ups, and customer communication workflows.',
+    sections: [
+      {
+        title: 'Featured client story',
+        text: 'IT Roots is a real AutoSensy client in the education and IT training segment, where WhatsApp communication matters for student inquiries and follow-ups.',
+        points: ['Education and IT training use case', 'Student inquiry follow-ups', 'Team communication workflow', 'WhatsApp-first response handling'],
+        links: [
+          { label: 'Read the IT Roots case study', href: '/case-studies/itroots-whatsapp-automation' },
+          { label: 'Visit IT Roots', href: 'https://itroots.co.in/' },
+        ],
+      },
+    ],
+  },
+  {
+    path: '/case-studies/itroots-whatsapp-automation',
+    routeType: 'caseStudy',
+    badge: 'Client Story',
+    title: 'IT Roots Case Study | AutoSensy WhatsApp Automation',
+    description: 'Read how IT Roots, a real AutoSensy client, uses WhatsApp-first communication workflows for student inquiries, follow-ups, and education team coordination.',
+    keywords: 'IT Roots AutoSensy case study, IT Roots WhatsApp automation, AutoSensy client IT Roots, education WhatsApp automation case study, WhatsApp student inquiry automation',
+    priority: '0.66',
+    changefreq: 'monthly',
+    heading: 'IT Roots uses AutoSensy for WhatsApp-first student communication',
+    summary: 'IT Roots is an AutoSensy client in the education and IT training space, using WhatsApp-first workflows to keep student inquiries and follow-ups organized.',
+    sections: [
+      {
+        title: 'Client profile',
+        text: 'IT Roots is an IT training institute offering industry-ready courses in areas such as Data Science, Full Stack Java, Cyber Security, AI, and related technology programs.',
+        points: ['Client: IT Roots', 'Website: https://itroots.co.in/', 'Industry: education and IT training', 'Workflow: student inquiries and follow-ups'],
+        links: [
+          { label: 'Visit IT Roots website', href: 'https://itroots.co.in/' },
+        ],
+      },
+      {
+        title: 'Communication challenge',
+        text: 'Education teams often receive student inquiries from multiple sources and need fast follow-ups, clear responses, reminder messages, and team visibility.',
+        points: ['Handle new student inquiries faster', 'Reduce missed WhatsApp conversations', 'Keep follow-ups organized', 'Support enrollment-related communication'],
+      },
+      {
+        title: 'How AutoSensy helps',
+        text: 'AutoSensy supports WhatsApp-first workflows for inquiry handling, automated responses, follow-up reminders, and better team coordination.',
+        points: ['WhatsApp inquiry management', 'Follow-up workflow support', 'Team inbox organization', 'Chatbot and campaign readiness'],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is IT Roots a real AutoSensy client?',
+        answer: 'Yes. IT Roots is mentioned as a real AutoSensy client for education and IT training WhatsApp communication workflows.',
       },
     ],
   },

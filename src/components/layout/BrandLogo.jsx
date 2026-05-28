@@ -6,6 +6,8 @@ export default function BrandLogo({ className = 'h-10 w-auto', alt = 'AutoSensy 
       src={BRAND_LOGO_SRC}
       alt={alt}
       className={`${className} mix-blend-multiply`}
+      width="492"
+      height="137"
       loading="eager"
       decoding="async"
     />

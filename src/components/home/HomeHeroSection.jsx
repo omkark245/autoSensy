@@ -223,6 +223,8 @@ export default function HomeHeroSection({ goTo }) {
                 src={`${HERO_EASY_INTEGRATION_IMAGE}?v=${ASSET_VERSION}`}
                 alt="AutoSensy WhatsApp Business API integration visual"
                 className="h-[240px] w-full rounded-3xl object-contain object-top sm:h-[310px] md:h-[360px] lg:h-[385px]"
+                width="1222"
+                height="1264"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

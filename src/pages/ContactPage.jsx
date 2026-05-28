@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
-import { Check, ChevronDown, Globe, Mail, Phone } from 'lucide-react'
+import { Check, ChevronDown, Globe, Mail, MapPin, Phone } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import GlowButton from '../components/ui/GlowButton'
+import { submitFormToInbox } from '../utils/formSubmission'
 
 const INITIAL_FORM = {
   name: '',
@@ -31,6 +32,10 @@ const USE_CASE_OPTIONS = [
 ]
 
 const WHATSAPP_NUMBER = '919960756292'
+const OFFICE_ADDRESS = '2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46'
+const OFFICE_MAP_QUERY = '2nd Floor, Saikripa Building, Trimurti Chowk, Pune, Maharashtra 411046'
+const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_MAP_QUERY)}`
+const OFFICE_MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_MAP_QUERY)}&output=embed`
 
 function createWhatsAppHref(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
@@ -152,6 +157,7 @@ export default function ContactPage() {
   const contactItems = [
     { label: 'autosensy@gmail.com', href: 'mailto:autosensy@gmail.com', icon: Mail, helper: 'Email us directly' },
     { label: '9960756292', href: 'tel:+919960756292', icon: Phone, helper: 'Talk to sales' },
+    { label: OFFICE_ADDRESS, href: OFFICE_MAP_URL, icon: MapPin, helper: 'Open office location' },
     { label: 'https://autosensy.in', href: 'https://autosensy.in', icon: Globe, helper: 'Visit the main site' },
   ]
 
@@ -170,14 +176,33 @@ export default function ContactPage() {
     setForm((current) => ({ ...current, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    setSubmitState('submitting')
+    setSubmitMessage('')
 
-    const demoRequestHref = createWhatsAppHref(createDemoRequestMessage(form))
-    window.open(demoRequestHref, '_blank', 'noopener,noreferrer')
+    try {
+      await submitFormToInbox({
+        formName: 'AutoSensy Demo Request',
+        subject: 'New AutoSensy demo request',
+        fields: {
+          name: form.name,
+          company: form.company,
+          phone: form.phone,
+          email: form.email,
+          monthly_volume: form.monthlyVolume,
+          primary_use_case: form.useCase,
+          demo_preparation_details: form.message,
+        },
+      })
 
-    setSubmitState('success')
-    setSubmitMessage('WhatsApp opened with your demo request. Send the message there to complete it.')
+      setSubmitState('success')
+      setSubmitMessage('Your request has been submitted to the AutoSensy team.')
+      setForm(INITIAL_FORM)
+    } catch (error) {
+      setSubmitState('error')
+      setSubmitMessage(error.message || 'We could not submit your request right now. Please try again or use WhatsApp.')
+    }
   }
 
   return (
@@ -219,15 +244,37 @@ export default function ContactPage() {
                 </a>
               ))}
             </div>
+
+            <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-strong)]">
+              <iframe
+                title="AutoSensy office location on Google Maps"
+                src={OFFICE_MAP_EMBED_URL}
+                className="block h-44 w-full border-0 sm:h-52 lg:h-48"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <div className="flex flex-col gap-2 border-t border-[var(--border)] bg-[var(--surface)] p-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm font-medium text-[var(--text)]">{OFFICE_ADDRESS}</p>
+                <a
+                  href={OFFICE_MAP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
+                >
+                  Open in Google Maps <MapPin className="size-4" />
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="card-shadow-soft rounded-3xl border border-[var(--border)] bg-[var(--surface-strong)] p-5 sm:p-6 md:p-8">
+          <div className="card-shadow-soft h-fit rounded-3xl border border-[var(--border)] bg-[var(--surface-strong)] p-5 sm:p-6 md:p-8 lg:self-start">
             <h2 className="text-xl font-bold sm:text-2xl">Request your walkthrough</h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              Submit the form and your full request will open as a WhatsApp message.
+              Submit the form and your full request will be sent to the AutoSensy team.
             </p>
 
-            <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
+            <form className="mt-6 space-y-3.5" onSubmit={handleSubmit}>
               <label className="block">
                 <span className="mb-2 block text-sm font-medium">Your name</span>
                 <input
@@ -314,7 +361,7 @@ export default function ContactPage() {
 
               <div className="flex flex-wrap gap-3 pt-2">
                 <GlowButton type="submit" disabled={submitState === 'submitting'} className="w-full sm:w-auto">
-                  {submitState === 'submitting' ? 'Opening WhatsApp...' : 'Send on WhatsApp'}
+                  {submitState === 'submitting' ? 'Submitting...' : 'Submit'}
                 </GlowButton>
                 <GlowButton href={whatsappHref} variant="secondary" className="w-full sm:w-auto">
                   Chat on WhatsApp

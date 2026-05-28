@@ -17,8 +17,12 @@ function UseCaseCard({ item }) {
           <img
             src={`${item.image}?v=${ASSET_VERSION}`}
             alt={item.alt}
+            width="768"
+            height="570"
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04]"
+            draggable={false}
           />
         </div>
       </div>

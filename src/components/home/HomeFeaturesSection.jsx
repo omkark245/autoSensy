@@ -39,7 +39,10 @@ function HomeFeatureCard({ feature, index }) {
         <img
           src={`${feature.image}?v=${ASSET_VERSION}`}
           alt={feature.alt}
+          width="512"
+          height="512"
           loading="lazy"
+          decoding="async"
           className="h-16 w-16 object-contain md:h-[4.5rem] md:w-[4.5rem]"
           draggable={false}
         />

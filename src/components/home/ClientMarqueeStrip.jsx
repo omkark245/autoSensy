@@ -4,21 +4,29 @@ import { useRef } from 'react'
 const CLIENTS = [
   {
     name: 'IT Roots',
-    logo: '/assets/clients/itroots.png',
+    logo: '/assets/clients/itroots-logo-compact.webp',
+    width: 512,
+    height: 288,
   },
   {
     name: 'InsuranceMajha',
-    logo: '/assets/clients/insurancemajha.png',
+    logo: '/assets/clients/insurancemajha-logo-compact.webp',
+    width: 600,
+    height: 260,
     widthClass: 'w-[18rem] sm:w-[23rem]',
   },
   {
     name: 'Quick Print Technology',
-    logo: '/assets/clients/quick-print-logo.png',
+    logo: '/assets/clients/quick-print-logo.webp',
+    width: 384,
+    height: 227,
     scale: 0.6,
   },
   {
     name: 'Mechnnovation Technologies',
     logo: '/assets/clients/mechnnovation-logo.svg',
+    width: 619,
+    height: 220,
   },
 ]
 
@@ -67,6 +75,8 @@ export default function ClientMarqueeStrip() {
               <img
                 src={client.logo}
                 alt={`${client.name} logo`}
+                width={client.width}
+                height={client.height}
                 loading="lazy"
                 decoding="async"
                 draggable="false"

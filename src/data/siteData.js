@@ -13,14 +13,24 @@ export const MAIN_ROUTES = [
 ]
 
 export const COMPANY_ROUTES = [
+  { path: '/autosensy', label: 'AutoSensy Official' },
   { path: '/about', label: 'About AutoSensy' },
   { path: '/faq', label: 'FAQs' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/case-studies', label: 'Case Studies' },
 ]
 
 export const LEGAL_ROUTES = [
   { path: '/privacy-policy', label: 'Privacy Policy' },
   { path: '/terms-and-conditions', label: 'Terms & Conditions' },
   { path: '/refund-cancellation-policy', label: 'Refund & Cancellation' },
+]
+
+export const SOCIAL_LINKS = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/autosensy/',
+  },
 ]
 
 export const HERO_STATS = [
@@ -112,6 +122,7 @@ export const TESTIMONIALS = [
     personName: 'Rahul Naik',
     personRole: 'Founder, ITRoots',
     personImage: '/assets/img/Rahul_Naik.avif',
+    website: 'https://itroots.co.in/',
   },
   {
     quote: 'We were looking for a simpler way to manage policy leads on WhatsApp, and AutoSensy has helped a lot. Follow-ups are faster now, and the team can respond without missing conversations.',
@@ -121,7 +132,7 @@ export const TESTIMONIALS = [
     initials: 'PJ',
     personName: 'Pooja Mohite',
     personRole: 'Director, InsuranceMajha',
-    personImage: '/assets/img/femal.jpg',
+    personImage: '/assets/img/femal.webp',
   },
   {
     quote: 'AutoSensy helps us keep customer chats and follow-ups properly organized. It has reduced a lot of manual back-and-forth for the team and made daily communication smoother.',
@@ -131,7 +142,7 @@ export const TESTIMONIALS = [
     initials: 'AK',
     personName: 'Prasad Kulkarni',
     personRole: 'CEO, Mechnnovation Technologies',
-    personImage: '/assets/profiles/arjun-kulkarni.png',
+    personImage: '/assets/profiles/arjun-kulkarni.webp',
   },
 ]
 

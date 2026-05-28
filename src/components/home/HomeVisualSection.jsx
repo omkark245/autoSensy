@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const CHAT_DASHBOARD_IMAGE = '/assets/img/dashboard.png?v=20260430b'
+const CHAT_DASHBOARD_IMAGE = '/assets/img/dashboard.webp?v=20260528a'
 
 export default function HomeVisualSection() {
   return (
@@ -17,6 +17,8 @@ export default function HomeVisualSection() {
             src={CHAT_DASHBOARD_IMAGE}
             alt="AutoSensy WhatsApp marketing automation dashboard preview"
             className="block h-full w-full object-cover"
+            width="1536"
+            height="1024"
             loading="lazy"
             decoding="async"
             draggable={false}

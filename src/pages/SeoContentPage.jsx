@@ -1,4 +1,4 @@
-import { CheckCircle2, MessageCircleQuestion } from 'lucide-react'
+import { CheckCircle2, ExternalLink, MessageCircleQuestion } from 'lucide-react'
 import ContentShell from '../components/ui/ContentShell'
 import { getSeoContentPage } from '../data/seoData'
 
@@ -32,6 +32,26 @@ export default function SeoContentPage({ pathname = '/' }) {
                   </li>
                 ))}
               </ul>
+            )}
+            {section.links?.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-3">
+                {section.links.map((link) => {
+                  const isExternal = /^https?:\/\//i.test(link.href)
+
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noreferrer' : undefined}
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface-strong)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    >
+                      {link.label}
+                      {isExternal && <ExternalLink className="size-3.5" aria-hidden="true" />}
+                    </a>
+                  )
+                })}
+              </div>
             )}
           </article>
         ))}

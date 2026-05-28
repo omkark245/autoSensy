@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Phone, QrCode } from 'lucide-react'
-import { COMPANY_ROUTES, LEGAL_ROUTES, MAIN_ROUTES } from '../../data/siteData'
+import { Instagram, Mail, MapPin, Phone, QrCode } from 'lucide-react'
+import { COMPANY_ROUTES, LEGAL_ROUTES, MAIN_ROUTES, SOCIAL_LINKS } from '../../data/siteData'
 import AppLink from '../navigation/AppLink'
 import BrandLogo from './BrandLogo'
 import GridBackground from './GridBackground'
@@ -88,7 +88,18 @@ export default function SiteFooter({ goTo, pathname }) {
                   <Phone className="size-4 shrink-0 text-[var(--accent)]" />
                   <span>9960756292</span>
                 </a>
-                
+                {SOCIAL_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 text-sm text-[var(--text)]"
+                  >
+                    <Instagram className="size-4 shrink-0 text-[var(--accent)]" />
+                    <span>{link.label}</span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -145,7 +156,18 @@ export default function SiteFooter({ goTo, pathname }) {
                 <Phone className="size-4 shrink-0 text-[var(--accent)]" />
                 <span className="text-sm text-[var(--text)]">9960756292</span>
               </a>
-              
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 rounded-2xl bg-[var(--surface)] px-4 py-3 transition-colors hover:text-[var(--text)]"
+                >
+                  <Instagram className="size-4 shrink-0 text-[var(--accent)]" />
+                  <span className="text-sm text-[var(--text)]">{link.label}</span>
+                </a>
+              ))}
             </div>
           </div>
 

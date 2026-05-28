@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Star } from 'lucide-react'
+import { ExternalLink, Star } from 'lucide-react'
 import { TESTIMONIALS } from '../../data/siteData'
 import SectionHeader from '../ui/SectionHeader'
 
@@ -30,6 +30,8 @@ function TestimonialCard({ item, index }) {
             <img
               src={item.personImage}
               alt={item.personName ?? item.company}
+              width="112"
+              height="112"
               loading="lazy"
               decoding="async"
               draggable="false"
@@ -39,6 +41,8 @@ function TestimonialCard({ item, index }) {
             <img
               src={item.logo}
               alt={`${item.company} logo`}
+              width="112"
+              height="112"
               loading="lazy"
               decoding="async"
               draggable="false"
@@ -67,6 +71,16 @@ function TestimonialCard({ item, index }) {
       </div>
 
       <p className="mt-3 min-h-24 text-sm leading-7 text-[var(--muted)]">"{item.quote}"</p>
+      {item.website && (
+        <a
+          href={item.website}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)]"
+        >
+          Visit {item.company} <ExternalLink className="size-3.5" aria-hidden="true" />
+        </a>
+      )}
     </motion.article>
   )
 }

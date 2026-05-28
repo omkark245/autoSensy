@@ -50,8 +50,11 @@ src/
 - Client-side route transitions
 - Static route SEO metadata generation
 - Trust, FAQ, privacy, terms, and refund policy pages
+- Official AutoSensy brand page for exact-brand search discovery
 - Keyword landing pages for WhatsApp marketing, WhatsApp Business API, chatbot, broadcast, and team inbox searches
 - Industry landing pages for ecommerce, education, real estate, finance, healthcare, and travel WhatsApp automation
+- Blog and case-study pages, including the IT Roots client story
+- Instagram profile link and brand social structured data
 - Contact/demo conversion flow
 
 ## Notes

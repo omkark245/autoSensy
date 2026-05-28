@@ -6,10 +6,12 @@ import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
   BRAND_ALIASES,
+  CLIENT_PROFILES,
   CORE_TOPICS,
   FAQ_ITEMS,
   NOT_FOUND_SEO,
   SEO_ROUTES,
+  SOCIAL_PROFILES,
   SITE_IMAGE,
   SITE_LOCALE,
   SITE_LOGO,
@@ -26,13 +28,19 @@ const indexFile = path.join(distDir, 'index.html')
 const routeEntries = Object.entries(SEO_ROUTES)
 const today = new Date().toISOString().slice(0, 10)
 const unusedDistAssets = [
+  'assets/img/dashboard.png',
   'assets/img/16d60501-3b42-4955-95fe-94552d3e933f.png',
   'assets/img/dashboard-preview.png',
   'assets/img/Gemini_Generated_Image_2yj7hn2yj7hn2yj7.png',
   'assets/img/Gemini_Generated_Image_2yj7hn2yj7hn2yj7 (1).png',
   'assets/img/Gemini_Generated_Image_2yj7hn2yj7hn2yj7 (2).png',
+  'assets/img/femal.jpg',
+  'assets/clients/itroots.png',
+  'assets/clients/insurancemajha.png',
+  'assets/clients/quick-print-logo.png',
   'assets/profiles/priya-joshi.png',
   'assets/profiles/rohan-patil.png',
+  'assets/profiles/arjun-kulkarni.png',
 ]
 
 if (!existsSync(indexFile)) {
@@ -91,6 +99,7 @@ function buildPageSchema(pathname, seo) {
       alternateName: BRAND_ALIASES,
       url: SITE_URL,
       logo: getAbsoluteAssetUrl(SITE_LOGO),
+      sameAs: SOCIAL_PROFILES,
       email: CONTACT_EMAIL,
       telephone: CONTACT_PHONE,
       description: SEO_ROUTES['/'].description,
@@ -160,6 +169,7 @@ function buildPageSchema(pathname, seo) {
       url: SITE_URL,
       image: getAbsoluteAssetUrl(SITE_IMAGE),
       logo: getAbsoluteAssetUrl(SITE_LOGO),
+      sameAs: SOCIAL_PROFILES,
       email: CONTACT_EMAIL,
       telephone: CONTACT_PHONE,
       priceRange: 'INR 800+',
@@ -231,6 +241,39 @@ function buildPageSchema(pathname, seo) {
     })
   }
 
+  if (seo.routeType === 'article' || seo.routeType === 'caseStudy') {
+    schema.push({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: seo.heading,
+      name: seo.title,
+      url,
+      description: seo.description,
+      inLanguage: SITE_LOCALE.replace('_', '-'),
+      author: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        logo: {
+          '@type': 'ImageObject',
+          url: getAbsoluteAssetUrl(SITE_LOGO),
+        },
+      },
+      mainEntityOfPage: url,
+      mentions: seo.routeType === 'caseStudy'
+        ? CLIENT_PROFILES.map((client) => ({
+          '@type': 'Organization',
+          name: client.name,
+          url: client.url,
+        }))
+        : undefined,
+    })
+  }
+
   if (pathname === '/faq' || seo.faqs?.length > 0) {
     schema.push({
       '@context': 'https://schema.org',
@@ -261,8 +304,6 @@ function buildMetaBlock(pathname, seo) {
     <meta name="keywords" content="${escapeHtml(seo.keywords)}" />
     <meta name="robots" content="${escapeHtml(robots)}" />
     <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${escapeHtml(SITE_NAME)}" />
     <meta property="og:locale" content="${escapeHtml(SITE_LOCALE)}" />
@@ -288,8 +329,11 @@ function buildSectionFallback(seo) {
     const points = section.points?.length
       ? `<ul>${section.points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
       : ''
+    const links = section.links?.length
+      ? `<p>${section.links.map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join(' ')}</p>`
+      : ''
 
-    return `<section><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.text)}</p>${points}</section>`
+    return `<section><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.text)}</p>${points}${links}</section>`
   }).join('')
 }
 
