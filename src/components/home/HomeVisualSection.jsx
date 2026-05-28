@@ -15,9 +15,10 @@ export default function HomeVisualSection() {
         <div className="relative aspect-[3/2] w-full">
           <img
             src={CHAT_DASHBOARD_IMAGE}
-            alt="AutoSensy WhatsApp dashboard preview"
+            alt="AutoSensy WhatsApp marketing automation dashboard preview"
             className="block h-full w-full object-cover"
             loading="lazy"
+            decoding="async"
             draggable={false}
           />
         </div>

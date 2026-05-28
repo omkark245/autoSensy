@@ -1,9 +1,10 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-export default function SectionHeader({ badge, title, subtitle }) {
+export default function SectionHeader({ badge, title, subtitle, headingLevel = 'h2' }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const Heading = headingLevel === 'h1' ? motion.h1 : motion.h2
 
   return (
     <motion.div
@@ -21,14 +22,14 @@ export default function SectionHeader({ badge, title, subtitle }) {
       >
         {badge}
       </motion.p>
-      <motion.h2
+      <Heading
         className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         {title}
-      </motion.h2>
+      </Heading>
       <motion.p
         className="mt-4 text-sm leading-7 text-[var(--muted)] sm:text-base md:text-lg"
         initial={{ opacity: 0 }}

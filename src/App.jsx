@@ -5,6 +5,7 @@ import SiteFooter from './components/layout/SiteFooter'
 import SiteHeader from './components/layout/SiteHeader'
 import WhatsAppFloatingButton from './components/layout/WhatsAppFloatingButton'
 import ScrollProgressBar from './components/ui/ScrollProgressBar'
+import { getRouteSeo, getSeoContentPage } from './data/seoData'
 import usePageMeta from './hooks/usePageMeta'
 
 function normalizePath(path) {
@@ -21,38 +22,47 @@ const FeaturesPage = lazy(() => import('./pages/FeaturesPage'))
 const UseCasesPage = lazy(() => import('./pages/UseCasesPage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const FAQPage = lazy(() => import('./pages/FAQPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
+const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'))
+const RefundCancellationPolicyPage = lazy(() => import('./pages/RefundCancellationPolicyPage'))
+const SeoContentPage = lazy(() => import('./pages/SeoContentPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 const ROUTES = {
   '/': {
     component: HomePage,
-    title: 'AutoSensy | WhatsApp Marketing and Automation',
-    description: 'Run WhatsApp campaigns, chat automation, use cases, and commerce workflows from one AutoSensy platform.',
   },
   '/features': {
     component: FeaturesPage,
-    title: 'Features | AutoSensy',
-    description: 'Explore AutoSensy features for WhatsApp marketing, chatbot journeys, team inboxes, forms, and payments.',
   },
   '/use-cases': {
     component: UseCasesPage,
-    title: 'Use Cases | AutoSensy',
-    description: 'See practical WhatsApp automation use cases across ecommerce, education, travel, finance, and service teams.',
   },
   '/pricing': {
     component: PricingPage,
-    title: 'Pricing | AutoSensy',
-    description: 'View AutoSensy pricing plans including monthly, yearly, and upcoming lifetime plan options.',
   },
   '/contact': {
     component: ContactPage,
-    title: 'Contact | AutoSensy',
-    description: 'Request a demo, discuss your WhatsApp workflow, or contact AutoSensy for onboarding and support.',
+  },
+  '/about': {
+    component: AboutPage,
+  },
+  '/faq': {
+    component: FAQPage,
+  },
+  '/privacy-policy': {
+    component: PrivacyPolicyPage,
+  },
+  '/terms-and-conditions': {
+    component: TermsAndConditionsPage,
+  },
+  '/refund-cancellation-policy': {
+    component: RefundCancellationPolicyPage,
   },
   '*': {
     component: NotFoundPage,
-    title: 'Page Not Found | AutoSensy',
-    description: 'The requested AutoSensy page could not be found.',
   },
 }
 
@@ -61,11 +71,20 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const mainRef = useRef(null)
 
-  const route = useMemo(() => ROUTES[pathname] ?? ROUTES['*'], [pathname])
+  const route = useMemo(() => {
+    if (ROUTES[pathname]) {
+      return ROUTES[pathname]
+    }
+
+    return getSeoContentPage(pathname) ? { component: SeoContentPage } : ROUTES['*']
+  }, [pathname])
+  const seo = useMemo(() => getRouteSeo(pathname), [pathname])
 
   usePageMeta({
-    title: route.title,
-    description: route.description,
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    robots: seo.robots,
     pathname,
   })
 
@@ -147,7 +166,7 @@ export default function App() {
                 </div>
               }
             >
-              <ActivePage goTo={goTo} />
+              <ActivePage goTo={goTo} pathname={pathname} />
             </Suspense>
           </motion.main>
         </AnimatePresence>

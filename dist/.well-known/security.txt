@@ -1,0 +1,3 @@
+Contact: mailto:autosensy@gmail.com
+Preferred-Languages: en, hi, mr
+Canonical: https://autosensy.in/.well-known/security.txt

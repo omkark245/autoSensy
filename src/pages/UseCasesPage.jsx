@@ -64,6 +64,7 @@ export default function UseCasesPage() {
         badge="Use Cases"
         title="Built for industry-specific WhatsApp use cases"
         subtitle="Explore how different industries use AutoSensy to manage customer communication, automate repetitive workflows, improve engagement, and drive faster conversions through WhatsApp. Each use case is designed to reflect real business scenarios where timely messaging, follow-ups, and support directly improve customer experience and operational efficiency."
+        headingLevel="h1"
       />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {USE_CASE_CARDS.map((item) => (

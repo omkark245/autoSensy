@@ -20,6 +20,7 @@ export default function FeaturesPage({ goTo }) {
         badge="Features"
         title="Powerful WhatsApp Business API features"
         subtitle="Built to automate communication, manage campaigns, and support customer engagement at scale."
+        headingLevel="h1"
       />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURES_LIST.map((feature, index) => {

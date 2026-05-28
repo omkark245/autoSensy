@@ -218,6 +218,7 @@ export default function PricingPage({ goTo }) {
         badge="Pricing"
         title="Simple pricing for monthly and yearly plans"
         subtitle="Choose a billing plan that fits your business requirements with clear monthly and yearly pricing. A lifetime plan is also being prepared and will be announced separately."
+        headingLevel="h1"
       />
 
       <BillingToggle billingCycle={billingCycle} setBillingCycle={setBillingCycle} />

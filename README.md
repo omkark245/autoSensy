@@ -48,12 +48,14 @@ src/
 - Responsive marketing pages
 - Reduced-motion support
 - Client-side route transitions
-- Page-level metadata updates
+- Static route SEO metadata generation
+- Trust, FAQ, privacy, terms, and refund policy pages
+- Keyword landing pages for WhatsApp marketing, WhatsApp Business API, chatbot, broadcast, and team inbox searches
+- Industry landing pages for ecommerce, education, real estate, finance, healthcare, and travel WhatsApp automation
 - Contact/demo conversion flow
 
 ## Notes
 
 - This project currently uses a lightweight internal router instead of `react-router`.
-- The contact and inquiry forms send submissions to `autosensy@gmail.com` through FormSubmit, with a direct `mailto:` fallback if delivery fails.
-
-
+- `npm run build` creates route-specific static HTML files, `sitemap.xml`, and `robots.txt` for deployment.
+- The contact and inquiry forms open pre-filled WhatsApp messages for the sales team.

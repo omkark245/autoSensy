@@ -12,6 +12,17 @@ export const MAIN_ROUTES = [
   { path: '/contact', label: 'Contact' },
 ]
 
+export const COMPANY_ROUTES = [
+  { path: '/about', label: 'About AutoSensy' },
+  { path: '/faq', label: 'FAQs' },
+]
+
+export const LEGAL_ROUTES = [
+  { path: '/privacy-policy', label: 'Privacy Policy' },
+  { path: '/terms-and-conditions', label: 'Terms & Conditions' },
+  { path: '/refund-cancellation-policy', label: 'Refund & Cancellation' },
+]
+
 export const HERO_STATS = [
   { display: 'AI', label: 'AI-Powered Chatbots', icon: TrendingUp },
   { display: 'Multi', label: 'Multi-Tenant Dashboard', icon: BarChart3 },
@@ -24,25 +35,25 @@ export const HOME_FEATURE_CARDS = [
     title: 'Flow Maker',
     text: 'Build bot conversations easily and effectively with an advanced visual flow builder.',
     image: '/assets/features/iteration-1.webp',
-    alt: 'Flow maker feature icon',
+    alt: 'AutoSensy WhatsApp flow maker automation feature',
   },
   {
     title: 'Templates',
     text: 'Create and manage approved templates directly in the app without switching tools.',
     image: '/assets/features/windows.webp',
-    alt: 'Templates feature icon',
+    alt: 'AutoSensy WhatsApp message template management feature',
   },
   {
     title: 'Campaigns',
     text: 'Launch and manage campaign journeys effortlessly with built-in campaign controls.',
     image: '/assets/features/campaign.webp',
-    alt: 'Campaigns feature icon',
+    alt: 'AutoSensy WhatsApp campaign automation feature',
   },
   {
     title: 'Auto Replies',
     text: 'Send instant automatic replies to common customer questions and keep responses fast across WhatsApp conversations.',
     image: '/assets/features/chatbot.webp',
-    alt: 'Auto replies feature icon',
+    alt: 'AutoSensy WhatsApp chatbot auto replies feature',
   },
 ]
 

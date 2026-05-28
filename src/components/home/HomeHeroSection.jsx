@@ -221,9 +221,11 @@ export default function HomeHeroSection({ goTo }) {
             >
               <img
                 src={`${HERO_EASY_INTEGRATION_IMAGE}?v=${ASSET_VERSION}`}
-                alt="Easy integration visual"
+                alt="AutoSensy WhatsApp Business API integration visual"
                 className="h-[240px] w-full rounded-3xl object-contain object-top sm:h-[310px] md:h-[360px] lg:h-[385px]"
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 draggable={false}
               />
             </motion.figure>

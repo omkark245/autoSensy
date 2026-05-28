@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, QrCode } from 'lucide-react'
-import { MAIN_ROUTES } from '../../data/siteData'
+import { COMPANY_ROUTES, LEGAL_ROUTES, MAIN_ROUTES } from '../../data/siteData'
 import AppLink from '../navigation/AppLink'
 import BrandLogo from './BrandLogo'
 import GridBackground from './GridBackground'
@@ -48,6 +48,25 @@ export default function SiteFooter({ goTo, pathname }) {
             </div>
 
             <div>
+              <p className="text-sm font-semibold text-[var(--text)]">Company</p>
+              <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4">
+                {[...COMPANY_ROUTES, ...LEGAL_ROUTES].map((route) => (
+                  <AppLink
+                    key={route.path}
+                    to={route.path}
+                    goTo={goTo}
+                    current={pathname === route.path}
+                    className={`text-sm font-medium transition-colors ${
+                      pathname === route.path ? 'text-[var(--accent)]' : 'text-[var(--text)]'
+                    }`}
+                  >
+                    {route.label}
+                  </AppLink>
+                ))}
+              </div>
+            </div>
+
+            <div>
               <p className="text-sm font-semibold text-[var(--text)]">Contact</p>
               <div className="mt-4 space-y-4">
                 <a
@@ -75,7 +94,7 @@ export default function SiteFooter({ goTo, pathname }) {
           </div>
         </div>
 
-        <div className="hidden gap-8 border-b border-[var(--border)] pb-8 md:grid md:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)_minmax(0,0.8fr)_minmax(0,0.95fr)]">
+        <div className="hidden gap-8 border-b border-[var(--border)] pb-8 md:grid md:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)_minmax(0,0.75fr)_minmax(0,0.85fr)]">
           <div>
             <BrandLogo className="h-12 w-auto sm:h-14" alt="AutoSensy" />
             <p className="mt-3 max-w-md text-sm leading-7 text-[var(--muted)]">
@@ -127,6 +146,24 @@ export default function SiteFooter({ goTo, pathname }) {
                 <span className="text-sm text-[var(--text)]">9960756292</span>
               </a>
               
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold text-[var(--text)]">Company</p>
+            <div className="mt-4 flex flex-col gap-3 text-sm text-[var(--muted)]">
+              {[...COMPANY_ROUTES, ...LEGAL_ROUTES].map((route) => (
+                <motion.div key={route.path} whileHover={{ x: 2 }}>
+                  <AppLink
+                    to={route.path}
+                    goTo={goTo}
+                    current={pathname === route.path}
+                    className="inline-flex items-center gap-2 transition-colors hover:text-[var(--text)]"
+                  >
+                    <span>{route.label}</span>
+                  </AppLink>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

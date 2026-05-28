@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { getAbsoluteAssetUrl, getCanonicalUrl, SITE_IMAGE, SITE_LOCALE, SITE_NAME } from '../data/seoData'
 
 function upsertMeta(selector, attributes) {
   let element = document.head.querySelector(selector)
@@ -25,13 +26,26 @@ function upsertCanonical(url) {
   element.setAttribute('href', url)
 }
 
-export default function usePageMeta({ title, description, pathname }) {
+export default function usePageMeta({ title, description, keywords, robots = 'index, follow', pathname }) {
   useEffect(() => {
+    const canonicalUrl = getCanonicalUrl(pathname)
+    const imageUrl = getAbsoluteAssetUrl(SITE_IMAGE)
+
     document.title = title
 
     upsertMeta('meta[name="description"]', {
       name: 'description',
       content: description,
+    })
+
+    upsertMeta('meta[name="keywords"]', {
+      name: 'keywords',
+      content: keywords,
+    })
+
+    upsertMeta('meta[name="robots"]', {
+      name: 'robots',
+      content: robots,
     })
 
     upsertMeta('meta[property="og:title"]', {
@@ -46,9 +60,44 @@ export default function usePageMeta({ title, description, pathname }) {
 
     upsertMeta('meta[property="og:url"]', {
       property: 'og:url',
-      content: `${window.location.origin}${pathname}`,
+      content: canonicalUrl,
     })
 
-    upsertCanonical(`${window.location.origin}${pathname}`)
-  }, [description, pathname, title])
+    upsertMeta('meta[property="og:site_name"]', {
+      property: 'og:site_name',
+      content: SITE_NAME,
+    })
+
+    upsertMeta('meta[property="og:locale"]', {
+      property: 'og:locale',
+      content: SITE_LOCALE,
+    })
+
+    upsertMeta('meta[property="og:image"]', {
+      property: 'og:image',
+      content: imageUrl,
+    })
+
+    upsertMeta('meta[name="twitter:card"]', {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    })
+
+    upsertMeta('meta[name="twitter:title"]', {
+      name: 'twitter:title',
+      content: title,
+    })
+
+    upsertMeta('meta[name="twitter:description"]', {
+      name: 'twitter:description',
+      content: description,
+    })
+
+    upsertMeta('meta[name="twitter:image"]', {
+      name: 'twitter:image',
+      content: imageUrl,
+    })
+
+    upsertCanonical(canonicalUrl)
+  }, [description, keywords, pathname, robots, title])
 }

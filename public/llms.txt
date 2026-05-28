@@ -1,0 +1,35 @@
+# AutoSensy
+
+AutoSensy is a WhatsApp marketing automation platform for campaigns, chatbot workflows, team inbox routing, WhatsApp forms, payments, customer follow-ups, and WhatsApp Business API communication.
+
+## Core Pages
+
+- Home: https://autosensy.in/
+- Features: https://autosensy.in/features
+- Use Cases: https://autosensy.in/use-cases
+- Pricing: https://autosensy.in/pricing
+- Contact: https://autosensy.in/contact
+- About: https://autosensy.in/about
+- FAQs: https://autosensy.in/faq
+- WhatsApp Marketing Automation: https://autosensy.in/whatsapp-marketing-automation
+- WhatsApp Business API: https://autosensy.in/whatsapp-business-api
+- WhatsApp Chatbot: https://autosensy.in/whatsapp-chatbot
+- WhatsApp Broadcast Campaigns: https://autosensy.in/whatsapp-broadcast-campaigns
+- WhatsApp Team Inbox: https://autosensy.in/whatsapp-team-inbox
+
+## Industry Pages
+
+- Ecommerce WhatsApp Automation: https://autosensy.in/industries/ecommerce-whatsapp-automation
+- Education WhatsApp Automation: https://autosensy.in/industries/education-whatsapp-automation
+- Real Estate WhatsApp Automation: https://autosensy.in/industries/real-estate-whatsapp-automation
+- Finance and Insurance WhatsApp Automation: https://autosensy.in/industries/finance-whatsapp-automation
+- Healthcare WhatsApp Automation: https://autosensy.in/industries/healthcare-whatsapp-automation
+- Travel WhatsApp Automation: https://autosensy.in/industries/travel-whatsapp-automation
+
+## Business Information
+
+- Brand: AutoSensy
+- Alternate names: Auto Sensy, autosensy, AutoSensy.in, AutoSensy WhatsApp
+- Email: autosensy@gmail.com
+- Phone: +91 9960756292
+- Location: Pune, Maharashtra, India
