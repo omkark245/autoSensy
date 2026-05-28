@@ -106,7 +106,7 @@ function buildPageSchema(pathname, seo) {
       knowsAbout: CORE_TOPICS,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '2nd Floor, Saikripa Building, Trimurti Chowk',
+        streetAddress: '2nd, Saikripa, Chandrabhaga Nagar, Trimurti Chowk',
         addressLocality: 'Pune',
         addressRegion: 'Maharashtra',
         postalCode: '411046',
@@ -175,7 +175,7 @@ function buildPageSchema(pathname, seo) {
       priceRange: 'INR 800+',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '2nd Floor, Saikripa Building, Trimurti Chowk',
+        streetAddress: '2nd, Saikripa, Chandrabhaga Nagar, Trimurti Chowk',
         addressLocality: 'Pune',
         addressRegion: 'Maharashtra',
         postalCode: '411046',

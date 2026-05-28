@@ -32,8 +32,8 @@ const USE_CASE_OPTIONS = [
 ]
 
 const WHATSAPP_NUMBER = '919960756292'
-const OFFICE_ADDRESS = '2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46'
-const OFFICE_MAP_QUERY = '2nd Floor, Saikripa Building, Trimurti Chowk, Pune, Maharashtra 411046'
+const OFFICE_ADDRESS = '2nd, Saikripa, Chandrabhaga Nagar, Trimurti Chowk, Pune, Maharashtra 411046, India'
+const OFFICE_MAP_QUERY = OFFICE_ADDRESS
 const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_MAP_QUERY)}`
 const OFFICE_MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_MAP_QUERY)}&output=embed`
 

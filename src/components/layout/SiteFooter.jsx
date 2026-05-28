@@ -1,9 +1,21 @@
 import { motion } from 'framer-motion'
-import { Instagram, Mail, MapPin, Phone, QrCode } from 'lucide-react'
+import { Mail, MapPin, Phone, QrCode } from 'lucide-react'
+import { FaInstagram } from 'react-icons/fa'
 import { COMPANY_ROUTES, LEGAL_ROUTES, MAIN_ROUTES, SOCIAL_LINKS } from '../../data/siteData'
 import AppLink from '../navigation/AppLink'
 import BrandLogo from './BrandLogo'
 import GridBackground from './GridBackground'
+
+function InstagramBrandIcon() {
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-flex size-4 shrink-0 items-center justify-center rounded bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)]"
+    >
+      <FaInstagram className="size-3 text-white" />
+    </span>
+  )
+}
 
 export default function SiteFooter({ goTo, pathname }) {
   return (
@@ -78,7 +90,7 @@ export default function SiteFooter({ goTo, pathname }) {
                 </a>
                 <div className="flex items-start gap-3 text-sm text-[var(--text)]">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--accent)]" />
-                  <span>2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46</span>
+                  <span>2nd, Saikripa, Chandrabhaga Nagar, Trimurti Chowk, Pune, Maharashtra 411046, India</span>
                 </div>
                 <a
                   href="tel:+919960756292"
@@ -96,7 +108,7 @@ export default function SiteFooter({ goTo, pathname }) {
                     rel="noreferrer"
                     className="flex items-center gap-3 text-sm text-[var(--text)]"
                   >
-                    <Instagram className="size-4 shrink-0 text-[var(--accent)]" />
+                    <InstagramBrandIcon />
                     <span>{link.label}</span>
                   </a>
                 ))}
@@ -147,7 +159,7 @@ export default function SiteFooter({ goTo, pathname }) {
               </a>
               <div className="flex items-start gap-3 rounded-2xl bg-[var(--surface)] px-4 py-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--accent)]" />
-                <span className="text-sm text-[var(--text)]">2nd Floor, Saikripa Building, Trimurti Chowk, Pune-46</span>
+                <span className="text-sm text-[var(--text)]">2nd, Saikripa, Chandrabhaga Nagar, Trimurti Chowk, Pune, Maharashtra 411046, India</span>
               </div>
               <a
                 href="tel:+919960756292"
@@ -164,7 +176,7 @@ export default function SiteFooter({ goTo, pathname }) {
                   rel="noreferrer"
                   className="flex items-center gap-3 rounded-2xl bg-[var(--surface)] px-4 py-3 transition-colors hover:text-[var(--text)]"
                 >
-                  <Instagram className="size-4 shrink-0 text-[var(--accent)]" />
+                  <InstagramBrandIcon />
                   <span className="text-sm text-[var(--text)]">{link.label}</span>
                 </a>
               ))}
